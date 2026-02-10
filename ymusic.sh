@@ -204,7 +204,6 @@ function main() {
 		--parse-metadata "uploader:%(artist)s"
 		--parse-metadata "title:%(artist)s - %(title)s"
 		--parse-metadata "playlist_index:%(track_number)s"
-		--ppa "EmbedThumbnail+ffmpeg_o:-c:v mjpeg -vf crop=\"'if(gt(ih,iw),iw,ih)':'if(gt(iw,ih),ih,iw)'\""
 
 		# === Формат вывода ===
 		--output "%(uploader)s - %(title)s [%(id)s]"
