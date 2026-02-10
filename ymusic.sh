@@ -127,7 +127,6 @@ function fetch_track() {
 		--audio-quality 0
 		--embed-thumbnail
 		--embed-metadata
-		--ppa "EmbedThumbnail+ffmpeg_o:-c:v mjpeg -vf crop=\"'if(gt(ih,iw),iw,ih)':'if(gt(iw,ih),ih,iw)'\""
 		--output "${YM_TEMP_DIR}/temp_${video_id}.%(ext)s"
 	)
 	if call_ytdlp "${fetch_opts[@]}" -t mp3 "${url}"; then
@@ -205,6 +204,7 @@ function main() {
 		--parse-metadata "uploader:%(artist)s"
 		--parse-metadata "title:%(artist)s - %(title)s"
 		--parse-metadata "playlist_index:%(track_number)s"
+		--ppa "EmbedThumbnail+ffmpeg_o:-c:v mjpeg -vf crop=\"'if(gt(ih,iw),iw,ih)':'if(gt(iw,ih),ih,iw)'\""
 
 		# === Формат вывода ===
 		--output "%(uploader)s - %(title)s [%(id)s]"
